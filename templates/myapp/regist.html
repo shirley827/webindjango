@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User regist</title>
+</head>
+<body>
+ {% if msg %}
+     <p>{{ msg }}</p>
+
+    {% else %}
+        <form method='post'>
+            {% csrf_token %}
+            {{ form }}
+        <input type="submit" value="Submit">
+        </form>
+    {% endif %}
+
+
+</body>
+</html>

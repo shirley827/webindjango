@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place Order here</title>
+</head>
+<body>
+<p>Please input what you want to order</p>
+
+<form method='post'>
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Submit">
+</form>
+<p><a href="{% url 'myapp:about' %}">About Page</a></p>
+<p><a href="{% url 'myapp:index' %}">Index Page</a></p>
+</body>
+</html>

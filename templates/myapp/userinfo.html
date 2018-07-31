@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your info</title>
+</head>
+<body>
+  {% if clientinfo %}
+        <h2>Info of User</h2>
+        <ol>
+
+                <li><img  src="{{avatarinfo.avatar.url}}"></img></li>
+                <li> name is {{ clientinfo.first_name}}</li>
+                <li> city is in{{ clientinfo.city}} </li>
+
+        </ol>
+
+    {% else %}
+        <strong>There are no available information!</strong>
+    {% endif %}
+
+<p><a href="{% url 'myapp:about' %}">About page</a></p>
+<p><a href="{% url 'myapp:index' %}">Index page</a></p>
+</body>
+</html>

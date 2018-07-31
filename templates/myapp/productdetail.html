@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+</head>
+<body>
+<form action="" method='post'>
+    {% csrf_token %}
+    {{ form }}
+   <!-- <p>Interested Yes:<input type="radio" name="interested" value="Yes">
+        No:<input type="radio" name="interested" value="No"></p>
+    <p>Order number:<input type="number" name="quantity" min="1" max="100" value="1"></p>
+    <p>Additional Comment:</p><input type="text" name="Additional Comments"></p>
+    -->
+    <input type="submit" value="Submit"/>
+    </form>
+
+{% if proinfo.available%}
+        <h2>Product Information</h2>
+    <p><font style="font-weight: bold">Product Name:</font> {{ proinfo.name}}</p>
+    <p><font style="font-weight: bold">Product Price:</font> {{ proinfo.price}}</p>
+    <p><font style="font-weight: bold">Number of Interests:</font> {{ proinfo.interested}}</p>
+
+    {% else %}
+        <strong>The product is not available</strong>
+    {% endif %}
+{% if msg%}
+        <h2>Msg Information</h2>
+    <p>{{ msg}}</p>
+
+
+    {% else %}
+        <strong>The msg is empty</strong>
+    {% endif %}
+
+<p><a href="{% url 'myapp:about' %}">About Page</a></p>
+<p><a href="{% url 'myapp:index' %}">Index Page</a></p>
+</body>
+</html>

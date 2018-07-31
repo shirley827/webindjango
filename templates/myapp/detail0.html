@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Detail Infor</title>
+</head>
+
+<body>
+    {% if catinfo %}
+        <h2>Info of Categories</h2>
+        <ol>
+            {% for cat  in catinfo %}
+                <li> name is {{ cat.name}} </li>
+                <li> location is in{{ cat.warehouse}} </li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+    {% if pro_list %}
+        <h2>List of Products</h2>
+        <ol>
+            {% for pro  in pro_list %}
+                <li> name of product:{{ pro.name}} </li>
+                <li> price of product:{{ pro.price}} </li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+<p><a href="{% url 'myapp:about' %}">About Page</a></p>
+<p><a href="{% url 'myapp:index' %}">Index Page</a></p>
+</body>
+</html>

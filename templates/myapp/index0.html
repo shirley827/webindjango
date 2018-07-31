@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Online Store APP</title>
+</head>
+
+<body>
+
+    {% if time %}
+
+        <p> Your login time is {{ time }}</p>
+
+    {% else %}
+        <strong>You login time is an hour ago!</strong>
+    {% endif %}
+
+
+    {% if cat_list %}
+        <h2>List of Categories</h2>
+        <ol>
+            {% for cat  in cat_list %}
+                <li> <a href="/myapp/{{cat.id}}"> {{ cat.name}} </a></li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+
+
+{% if statu %}
+
+        <p><a href="{% url 'myapp:logout' %}">Here to logout</a></p>
+        <p><a href="/myapp/orders">Check what you buy</a></p>
+        <p><a href="/myapp/payorders">Click to buy</a></p>
+
+    {% else %}
+       <p><a href="{% url 'myapp:login' %}">Here to login</a></p>
+       <p><a href="{% url 'myapp:regist' %}">Here to regist</a></p>
+{% endif %}
+
+<p><a href="{% url 'myapp:about' %}">About page</a></p>
+
+</body>
+</html>
